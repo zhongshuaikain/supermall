@@ -1,0 +1,21 @@
+项目远程到git上以后，本地需要搭建项目目录结构
+
+项目目录构建：
+    1.搭建目录结构
+        store:          用于存放数据交互相关的文件
+        router:         用于存放路由文件
+        network:        用于存放网络请求相关文件
+        components:     用于存放组件
+            common:     在components目录结构下，用于存放这个项目和别的项目均可抽离的公共组件
+            content:    在components目录结构下，用于存放与本业务相关的组件
+        common:         用于存放公共的js文件
+        views:          用于存放大视图组件，在该文件夹下再进行小视图细分
+    2.引入css统一样式
+        在assert目录下的css文件中引入normalize.css文件对项目进行样式风格统一
+        在assert目录下的css文件中引入base.css文件对项目进行样式标签初始化
+        在vue的组件中引入base.css文件即可
+    3.配置文件路径别名
+        在src下创建 vue.config.js文件，在该文件中配置别名
+    4.引入 .editorconfig文件，用于规范开发风格，便于后期维护
+
+

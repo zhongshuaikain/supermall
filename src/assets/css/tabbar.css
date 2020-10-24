@@ -1,0 +1,20 @@
+.tab-bar {
+  display: flex;
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 49px;
+  box-shadow: 0 -3px 3px 0 rgba(0,0,0,.3);
+  background-color: #f6f6f6;
+}
+
+.tab-bar-Item {
+  flex: 1;
+  text-align: center;
+}
+
+.tab-bar-Item img{
+  width: 24px;
+  height: 24px;
+}
