@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <script src="js/vue.js"></script>
+</head>
+<body>
+<div id="app" :number1="num1" :number2="num2">
+  <cpn></cpn>
+</div>
+
+<template id="son">
+  <div>
+    <h2>{{number1}}</h2>
+    <input type="text" placeholder="请输入数字number1" v-model="number1">
+    <h2>{{number2}}</h2>
+    <input type="text" placeholder="请输入数字number2" v-model="number2">
+  </div>
+</template>
+
+<script>
+  const cpn = {
+    template: '#son',
+    props: {
+      number1: {
+        type: Number,
+        default: 'aaa'
+      },
+      number2: {
+        type: Number,
+        default: 'bbb'
+      }
+    }
+  }
+  new Vue({
+    el: '#app',
+    data: {
+      num1: 1,
+      num2: 2
+    },
+    components: {
+      cpn
+    }
+  })
+</script>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <script src="js/vue.js"></script>
+</head>
+<body>
+
+<div id="app">
+  <cpn></cpn>
+</div>
+
+
+<script>
+
+  /*
+  组件的应用原本是包括：利用Vue.extend()定义构造器、Vue.component()注册组件、最后再调用组件
+  利用组件语法糖以后，直接省略了定义构造器的步骤，将构造器内部实现的模版直接放入Vue.component()的括号中
+*/
+  Vue.component('cpn', {
+    template: `
+      <div>
+        <h1>这是标题一</h1>
+      </div>
+    `
+  })
+
+  new Vue({
+    el: '#app',
+    data: {},
+
+  })
+</script>
+</body>
+</html>

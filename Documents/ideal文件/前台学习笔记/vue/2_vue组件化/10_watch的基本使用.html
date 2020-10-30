@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <script src="js/vue.js"></script>
+</head>
+<body>
+
+<div id="app">
+  <cpn :cnumber1="number1" :cnumber2="number2" @gochange1="endchange1" @gochange2="endchange2"></cpn>
+</div>
+
+<template id="cpn">
+  <div>
+    <h2> {{cnumber1}}</h2>
+    <input type="text" :value="cnumber1" @input="change1">
+    <h2> {{cnumber2}}</h2>
+    <input type="text" :value="cnumber2" @input="change2">
+  </div>
+</template>
+
+<script>
+
+  const cpn = {
+    template: '#cpn',
+    props: {
+      cnumber1: {
+        type: Number,
+        default() {
+          return 'number1';
+        }
+      },
+      cnumber2: {
+        type: Number,
+        default() {
+          return 'number2';
+        }
+      }
+    },
+    data() {
+      return {
+        dnumber1: this.cnumber1,
+        dnumber2: this.cnumber2
+      }
+    },
+    methods: {
+      change1(event) {
+        this.dnumber1 = event.target.value;
+        this.$emit('gochange1', this.dnumber1);
+      },
+      change2(event) {
+        this.dnumber2 = event.target.value;
+        this.$emit('gochange2', this.dnumber2);
+      },
+    },
+    watch: {
+      dnumber1(newValue) {
+        this.dnumber2 = newValue*100;
+        this.$emit('gochange2', this.dnumber2);
+      },
+      dnumber2(newValue) {
+        this.dnumber1 = newValue/100;
+        this.$emit('gochange1', this.dnumber1);
+      }
+    }
+  }
+  new Vue({
+    el: '#app',
+    data() {
+      return {
+        number1: 1,
+        number2: 2
+      }
+    },
+    components: {
+      cpn
+    },
+    methods: {
+      endchange1(value) {
+        this.number1 = parseFloat(value);
+      },
+      endchange2(value) {
+        this.number2 = parseFloat(value);
+      }
+    }
+  })
+
+</script>
+
+</body>
+</html>

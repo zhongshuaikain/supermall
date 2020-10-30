@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <script src="js/vue.js"></script>
+</head>
+<body>
+
+<div id="app">
+  <my_cpn></my_cpn>
+</div>
+
+<div id="app2">
+  <cpn2></cpn2>
+</div>
+
+
+<script>
+
+
+  const construct = Vue.extend({
+    template: `
+      <div>
+        <h2>这是一个全局组件的模版</h2>
+      </div>
+      `
+  })
+
+  const construct2 = Vue.extend({
+    template: `
+      <div>
+        <h2>这是一个局部组件的模版</h2>
+      </div>
+      `
+  })
+  // 设置全局模版的引用 任何实例中都可以引用
+  Vue.component('my_cpn', construct);
+
+  new Vue({
+    el: '#app',
+  })
+
+  new Vue({
+    el: '#app2',
+    // 设置局部模版 只有在app2的实例中能够被引用
+    components: {
+      'cpn2': construct2
+    }
+  })
+</script>
+</body>
+</html>

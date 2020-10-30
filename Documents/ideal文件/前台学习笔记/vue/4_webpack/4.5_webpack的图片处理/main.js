@@ -1,0 +1,2 @@
+
+require("./css/normal.css");

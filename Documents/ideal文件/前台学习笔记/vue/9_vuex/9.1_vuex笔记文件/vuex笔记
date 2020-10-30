@@ -1,0 +1,31 @@
+vuex安装
+    npm install vuex --save
+
+vuex使用步骤：
+    调用vue.use(vuex)
+    创建store对象
+        const store = new Vuex.Store
+    导出store对象
+    将store对象挂载在Vue实例中
+    在Vue实例中注册store为Vue的全局组件，使得任何组件内部都能使用store
+        Vue.prototype.$store = store
+
+vuex状态管理图中：
+    Action:    处理异步操作（发送网络请求、向后端请求API）
+    Mutations: 只能处理同步操作
+    Devtools:  谷歌的浏览器插件工具，只能自动跟踪记载同步操作的每一步
+
+
+   const store = new Vuex.Store({
+      state:{}      保存共享状态，单一状态树(只需要一个store对象进行保存信息)
+      mutation:{}   是唯一一种方式来修改state中的状态的；在组件的自定义方法中，使用this.$store.commit(‘对应mutations中的方法’, 新的值)方法，
+                    把新的值提交给mutations中相对应的方法，mutations属性中的每个方法中有两个参数，分别为state和payload；
+                    state其实就是vuex中的state属性，payload叫做mutations的载荷，是一个对象类型，要取出传出来的值的话，一般采用payload.key 的方法。
+      actions:{}    异步操作
+      getter:{}     类似于组件中的计算属性，getter中的方法只能携带 state和getter两个参数，不能携带其他参数，但是mutitions中的方法可以携带手动定义的其他参数
+      modules:{}    专门划分模块，针对不同的模块进行相关数据的保存
+   })
+   通过 this.$store.state 属性来访问状态
+   通过 this.$store.commit('mutation中方法')来修改状态
+      想要在外部组件中修改state里面的值，首先要在 new Vuex.store的mutations内有修改state值的方法，
+      在外部组件中定义方法，再利用 this.$store.commit('mutations中定义的方法')进行提交既可实现

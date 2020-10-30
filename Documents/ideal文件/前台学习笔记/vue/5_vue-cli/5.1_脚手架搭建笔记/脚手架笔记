@@ -1,0 +1,55 @@
+vue的脚手架搭建：
+
+   搭建脚手架的前提：
+      1.安装node (http://nodejs.cn/download/)，且node环境需要8.9以上的版本
+      2. NPM包管理工具
+         cnpm安装：国内npm安装较慢，推荐淘宝镜像进行安装，cnpm install [name]会替代默认的npm命令打包
+             npm install -g cnpm -registry=http://registry.npm.taobao.org
+
+   安装脚手架：
+      npm install -g @vue/cli (该方法是安装脚手架3版本)
+      拉取脚手架2版本：npm install @vue/cli-init
+      (当安装不能成功时： npm clean cache -force 清理缓存文件 )
+
+   Vue CLI2初始化项目：
+       vue init webpack 项目名称
+       安装操作详见 Vue CLI2详解.png
+
+   VUe CLI3初始化项目：
+       vue create 项目名称
+       安装操作详见 Vue CLI3详解.png
+
+   Vue CLI2目录结构分析：
+       node *.js     表示利用node使 *.js 文件直接在服务器运行
+       --progress    监听打包的进度，作出打印
+       src/assets:   将里面的文件进行打包编译，如图片资源，会根据limit，小于limit编译成base64识别，大于limit，通过配置file-loader打包编译到dist文件夹下
+       static文件：   原封不动的将静态资源复制到dist文件夹中
+       babelrc:      当配置es6转换成es5的loader时，如果安装的是 balel-preset-env,脚手架会单独生成该文件
+       editorconfig: 对代码风格进行统一（如：root=true 只有这个存在，才会开始解析该文件； end_of_line = lf 表示通过lf结尾换行； insert_final_newline=true 表示在文件最后再空一行）
+       eslintignore: 对该文件中所包含的目录下的内容忽略，不检测
+       eslintrc:     对代码进行检测
+       postcssrc.js: 对css转化的一些相关配置
+       package.json: 管理node里面的相关包
+
+   脚手架中 runtime-only 和 runtimer+compiler的区别：
+       runtimer-compiler: 采用的 template —— ast（抽象语法树） —— render(functions) —— virtual dom —— UI
+       runtimer-only：render(functions) —— virtual dom —— UI
+       runtimer-only相对于runtimer-comiler而言性能更高，更加轻量
+
+   runtimer-only中的render函数：
+       new Vue({
+         el:'#app',
+         render: function (h){
+            return h('h2',{class:'box'},['Hello World']);
+          }
+       })
+
+       相当于
+       render = h =>h('h2',{class:'box'},['Hello World']);
+       该render方法会把原来挂载在html文件中的app替换成<h2 class='box'> Hello World </h2>
+
+
+
+
+
+

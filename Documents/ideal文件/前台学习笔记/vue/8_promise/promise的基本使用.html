@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+
+<h2>
+  假设我有一个定时器A，定时器A内部有5行代码和另一个定时器B需要执行，
+  而在定时器B中又有5行代码和一个定时器C需要执行，
+  定时器C中又有5行代码需要执行和一个定时器D需要执行，
+  定时器D中跑出error错误
+  用promise异步请求进行编程
+</h2>
+
+<script>
+  // 写法一
+  new Promise((resolve, reject) => {
+    setTimeout(() => {
+      resolve()
+    });
+  }).then(() => {
+    console.log('A定时器第一行代码A')
+    console.log('A定时器第二行代码A')
+    console.log('A定时器第三行代码A')
+    console.log('A定时器第四行代码A')
+    console.log('A定时器第五行代码A')
+
+    return new Promise((resolve, reject) => {
+      setTimeout(() => {
+        resolve()
+      })
+    }).then(() => {
+      console.log('B定时器第一行代码B')
+      console.log('B定时器第二行代码B')
+      console.log('B定时器第三行代码B')
+      console.log('B定时器第四行代码B')
+      console.log('B定时器第五行代码B')
+
+      return new Promise((resolve, reject) => {
+        setTimeout(() => {
+          resolve()
+        })
+      }).then(() => {
+        console.log('C定时器第一行代码C')
+        console.log('C定时器第二行代码C')
+        console.log('C定时器第三行代码C')
+        console.log('C定时器第四行代码C')
+        console.log('C定时器第五行代码C')
+
+        return new Promise((resolve, reject) => {
+          setTimeout(() => {
+            reject('定时器D抛出error错误！')
+          })
+        }).catch((err)=>{
+          console.log(err)
+        })
+      })
+    })
+  })
+
+
+</script>
+
+
+</body>
+</html>

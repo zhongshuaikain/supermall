@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <script src="js/vue.js">
+  </script>
+</head>
+<body>
+
+<div id="app">
+
+  <cpn :number1="num1" :number2="num2" @change_number1="change_num1" @change_number2="change_num2"></cpn>
+
+</div>
+
+<template id="temp">
+  <div>
+    <h2>hello</h2>
+    <h3>{{number1}}</h3>
+    <input type="text" placeholder="请输入num1" :value="cnumber1" @input="change_cnumber1">
+    <h3>{{number2}}</h3>
+    <input type="text" placeholder="请输入num2" :value="cnumber2" @input="change_cnumber2">
+  </div>
+</template>
+
+<script>
+
+  const cpn = {
+    template: '#temp',
+    props: {
+      number1: {
+        type: Number,
+        default() {
+          return 'number1'
+        }
+      },
+      number2: {
+        type: Number,
+        default() {
+          return "number2";
+        }
+      }
+    },
+    data() {
+      return {
+        cnumber1: this.number1,
+        cnumber2: this.number2
+      }
+    },
+    methods: {
+      change_cnumber1(event) {
+        this.cnumber1 = event.target.value;
+        this.$emit('change_number1', this.cnumber1);
+      },
+      change_cnumber2(event) {
+        this.cnumber2 = event.target.value;
+        this.$emit('change_number2', this.cnumber2);
+      }
+    }
+  }
+
+  new Vue({
+    el: '#app',
+    data() {
+      return {
+        num1: 1,
+        num2: 2
+      }
+    },
+    components: {
+      cpn
+    },
+    methods: {
+      change_num1(value) {
+        this.num1 = parseFloat(value);
+      },
+      change_num2(value) {
+        this.num2 = parseFloat(value);
+      }
+    }
+  })
+
+
+</script>
+
+</body>
+</html>

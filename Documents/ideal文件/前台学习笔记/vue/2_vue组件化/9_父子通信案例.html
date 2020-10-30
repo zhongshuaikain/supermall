@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <script src="js/vue.js"></script>
+</head>
+<body>
+<div id="app">
+  <cpn v-bind:cnum1="number1" :cnum2="number2" @cnum1_input="props_num1" @cnum2_input="props_num2"></cpn>
+</div>
+
+<template id="childcpn">
+  <div>
+    <h2>props-num1: {{cnum1}}</h2>
+    <h2>cdata-num1: {{cdnum1}}</h2>
+    <input type="text" :value="cdnum1" @input="cdnum1_input">
+    <h2>props-num2: {{cnum2}}</h2>
+    <h2>cdata-num2: {{cdnum2}}</h2>
+    <input type="text" :value="cdnum2" @input="cdnum2_input">
+  </div>
+</template>
+
+<script>
+
+
+  const cpn = {
+    template: '#childcpn',
+    props: {
+      cnum1: {
+        type: Number,
+        default: 'num1'
+      },
+      cnum2: {
+        type: Number,
+        default: 'num2'
+      }
+    },
+    data() {
+      return {
+        cdnum1: this.cnum1,
+        cdnum2: this.cnum2
+      }
+    },
+    methods: {
+      cdnum1_input(event) {
+        this.cdnum1 = event.target.value;
+        this.$emit('cnum1_input', this.cdnum1);
+        this.cdnum2 = this.cdnum1 * 100;
+        this.$emit('cnum2_input', this.cdnum2);
+      },
+      cdnum2_input(event) {
+        this.cdnum2 = event.target.value;
+        this.$emit('cnum2_input', this.cdnum2);
+        this.cdnum1 = this.cdnum1 / 100;
+        this.$emit('cnum1_input', this.cdnum1);
+      }
+    }
+
+  }
+
+  new Vue({
+    el: "#app",
+    data: {
+      number1: 1,
+      number2: 0
+    },
+    components: {
+      cpn
+    },
+    methods: {
+      props_num1(value) {
+        this.number1 = parseFloat(value);
+      },
+      props_num2(value) {
+        this.number2 = parseFloat(value);
+      }
+    }
+  })
+</script>
+
+
+</body>
+</html>

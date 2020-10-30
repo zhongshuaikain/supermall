@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <script src="js/vue.js"></script>
+</head>
+<body>
+
+<div id="app">
+<cpn1></cpn1>
+<cpn2></cpn2>
+</div>
+
+<!-- 方法一 -->
+<script type="text/x-template" id="struct1">
+  <div>
+    <h2>这是利用script模版分离的方式一</h2>
+  </div>
+</script>
+
+<template id="struct2">
+  <div>
+    <h2>这是利用template标签模版分离的方式二</h2>
+  </div>
+</template>
+
+<script>
+  new Vue({
+    el: '#app',
+    components:{
+      cpn1:{
+        template:'#struct1'
+      },
+      cpn2:{
+        template: '#struct2'
+      }
+    }
+
+  })
+</script>
+
+</body>
+</html>

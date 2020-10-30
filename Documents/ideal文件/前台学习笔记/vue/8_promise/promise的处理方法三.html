@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+
+<h2>
+  第一次网络请求aaa： aaa ,
+  第二次网络请求在第一次基础基础上拼接bbb： aaabbb
+</h2>
+
+<script>
+
+  new Promise((resolve, reject) => {
+    setTimeout(() => {
+      resolve('aaa')
+    })
+  }).then((res) => {
+    console.log('取出第一次网络请求值' + res);
+
+    // 写法三  当请求不是异步处理的时候可以不用 new promise
+    // return new promise((resolve)=>{
+    //      resolve()
+    // }).then()
+    // 简写成 return promise.resolve().then()后还能进一步简写成
+    // .then(res=>{
+    //     return res+'xxx'
+    //    }.then(res=>{
+    //    return res +'xxx'
+    //    }).then();
+    //注意 此处第二次请求的 .then是直接接在第一次请求的then的后面的，第三次请求的 .then是直接接在第二次请求的then的后面的，
+    return new Promise((resolve, reject) => {
+      resolve(res + '1113');
+
+    }).then(res => {
+      console.log('取出第二次网络请求值' + res);
+
+      return Promise.resolve(res + '222').then(res => {
+        console.log(res)
+      })
+    })
+  }).catch(m => {
+    alert(m)
+  })
+
+
+  //
+  // return res + 'bbb'
+  //     .then(res => {
+  //       console.log('取出第二次网络请求值' + res);
+  //     })
+  // })
+
+
+</script>
+</body>
+</html>
+
+

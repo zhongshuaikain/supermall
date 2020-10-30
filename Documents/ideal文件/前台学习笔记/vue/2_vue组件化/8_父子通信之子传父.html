@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <script src="js/vue.js"></script>
+</head>
+<body>
+<div id="app">
+  <cpn @itemclick="myclick"></cpn>
+</div>
+
+<template id="son">
+  <div>
+    {{movies}}
+    <div v-for="item in categories">
+      <button @click="btnclick(item)">
+        {{item.name}}
+      </button>
+    </div>
+  </div>
+
+</template>
+
+<script>
+
+  const cpn = {
+    template: '#son',
+    data() {
+      return {
+        movies: ["我没有喜欢的电影！"],
+        categories: [
+          {id: 1, name: '海贼王', price: 100},
+          {id: 2, name: '海王', price: 400},
+          {id: 3, name: '海尔兄弟', price: 200},
+          {id: 4, name: '兄弟', price: 300}
+        ]
+      }
+    },
+    methods: {
+      btnclick(item) {
+        this.$emit('itemclick', item);
+      }
+    }
+  }
+  new Vue({
+    el: '#app',
+    components: {
+      cpn
+    },
+    methods: {
+      myclick(item) {
+        alert('你点击的是子组件中的' + item.name);
+      }
+    }
+  })
+</script>
+
+</body>
+</html>

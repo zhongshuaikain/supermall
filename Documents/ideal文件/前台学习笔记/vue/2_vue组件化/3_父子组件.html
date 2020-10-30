@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <script src="js/vue.js"></script>
+</head>
+<body>
+
+<div id="app">
+  <cpn2></cpn2>
+</div>
+
+<script>
+  const construct1 = Vue.extend({
+    template: `
+    <div>
+      <h2>这是一个标题一</h2>
+    </div>
+    `
+  })
+  const construct2 = Vue.extend({
+    template: `
+    <div>
+      <h2>这是一个标题二</h2>
+在父组件构造器内注册并且引用子组件
+      <cpn1></cpn1>
+    </div>
+    `,
+    components: {
+      cpn1: construct1
+    }
+  })
+
+
+  new Vue({
+    el: '#app',
+    components: {
+      cpn2: construct2
+    }
+  })
+</script>
+</body>
+</html>

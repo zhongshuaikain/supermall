@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <script src="js/vue.js"></script>
+</head>
+<body>
+
+父传子步骤总结<br>
+1.在父模版 data内写入数据 <br>
+2.在子组件内添加 props属性方法，并给变量名<br>
+3.在显示端调用子组件便签<br>
+4.在子组件便签内将 props内的变量名和父组件data内部的数据进行绑定<br><br>
+
+<div id="app">
+  <cpn v-bind:my_message='message' :my_movies='movies'></cpn>
+</div>
+
+<template id="sonCpn">
+  <div>
+    {{my_message}}
+    {{my_movies}}
+  </div>
+</template>
+<script>
+
+  const cpn={
+    template: '#sonCpn',
+    props: {
+      my_message: {
+        type: String,
+        default: '啥也不是！'
+      },
+      my_movies: {
+        type: Array,
+        default() {
+          return ['我没有喜欢的电影！'];
+        }
+      }
+    }
+  }
+
+  new Vue({
+    el: '#app',
+    data() {
+      return {
+        message: 'hello',
+        movies: ['one', 'two', 'three']
+      }
+    },
+    components: {
+      cpn
+    }
+  })
+
+
+</script>
+</body>
+</html>
+

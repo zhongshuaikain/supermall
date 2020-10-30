@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <script src="js/vue.js"></script>
+</head>
+<body>
+<div id="app">
+<!--  3. 调用组件 -->
+  <my-cpn></my-cpn>
+</div>
+
+<script>
+  // 1. 创建组建构造器
+  //     首先利用Vue.extend()创建组件构造器，其内部引用template:模版，该模版就是在使用到组件的地方，要显示的HTML代码
+  let construct = Vue.extend({
+    template: `
+    <div>
+      <h2>我是标题</h2>
+    </div>
+    `
+  });
+
+  // 2. 注册组件
+  Vue.component('my-cpn',construct);
+
+  new Vue({
+    el: '#app',
+    data: {}
+  })
+</script>
+
+</body>
+</html>

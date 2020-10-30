@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<script src="vue.js"></script>
+
+<body>
+<div id="app">
+
+  <cpn :dnum1="num1" :dnum2="num2" @change1="change1Num" @change2="change2Num"></cpn>
+</div>
+
+<template id="child">
+  <div>
+    {{childMessage}}
+    <h2> {{dnum1}}</h2>
+    <input type="text" placeholder="num1" @input="changeNum1" :value="dnumber1"/>
+
+    <h2> {{dnum2}}</h2>
+    <input type="text" placeholder="num2" @input="changeNum2" :value="dnumber2"/>
+  </div>
+</template>
+<script>
+
+
+  const cpn = {
+    template: '#child',
+    data() {
+      return {
+        childMessage: 'hellochild',
+        dnumber1: this.dnum1,
+        dnumber2: this.dnum2
+      }
+    },
+    props: {
+      dnum1: {
+        type: Number,
+        default: 10
+      },
+      dnum2: {
+        type: Number,
+        default: 20
+      }
+    },
+    methods: {
+      changeNum1(event) {
+        console.log(event)
+        this.dnumber1=event.target.value;
+        this.$emit('change1',this.dnumber1)
+      },
+      changeNum2(event) {
+        console.log(event)
+        this.dnumber2=event.target.value;
+        this.$emit('change2',this.dnumber2)
+      }
+    }
+  }
+
+  new Vue({
+    el: '#app',
+    data: {
+      num1: 1,
+      num2: 2
+    },
+    components: {
+      cpn
+    },
+    methods:{
+      change1Num(value) {
+        this.num1=parseFloat(value)
+      },
+      change2Num(value) {
+        this.num2=parseFloat(value)
+      }
+    }
+  })
+</script>
+
+
+</body>
+</html>

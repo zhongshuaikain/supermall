@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <script src="js/vue.js"></script>
+</head>
+<body>
+<div id="app">
+  <cpn></cpn>
+  <cpn></cpn>
+
+</div>
+
+<template id="cpn1">
+  <div>
+    <button @click="decr">-</button>
+    当前计数器{{message}}
+    <button @click="incr">+</button>
+  </div>
+</template>
+
+
+<script>
+  new Vue({
+    el: '#app',
+    //创建组件构造器➕组件注册
+    components: {
+      cpn: {
+        template: '#cpn1',
+        data() {
+          return {
+            message: 0
+          }
+        },
+        methods: {
+          decr() {
+            this.message--;
+          },
+          incr() {
+            this.message++;
+          }
+        }
+      }
+    }
+
+  })
+</script>
+</body>
+</html>

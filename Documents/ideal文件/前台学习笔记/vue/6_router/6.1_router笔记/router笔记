@@ -1,0 +1,78 @@
+router的安装与使用：
+    router 使用 npm insatll vue-router --save 全局安装
+
+    安装router后：
+       1. 在src文件中创建router文件夹，在该文件夹中创建index.js文件用于路由配置与映射
+       2. 在创建好第一步后，在main.js中的new Vue({})实例中挂载引用第一步创建的路由文件
+       3. 开始配置router文件
+             3.1: 首先导入 Vue.use(VueRouter),同时注意import引入Vue以及VueRouter
+             3.2: 创建一个router实例，并在该实例中注册一个routes组件，该组件用于配置路由的映射
+             3.3: 在router组件中进行相关路径映射，一个映射路径对应一个组件
+                  const routes=[{
+                      path: '/映射路径',
+                      component: 映射组件名
+                    }]
+             3.4: 导出router的实例对象
+       4.在new Vue({})中注册的template模版中，使用路由（一般该template文件会存放在 *.Vue 文件中）
+               <div id="app">
+               //用于路由配置映射
+                 <router-link to="/映射路径1">映射组件名中的页面1</router-link>
+                 <router-link to="/映射路径2">映射组件名中的页面2</router-link>
+                //用于路由显示
+                 <router-view></router-view>
+               </div>
+
+
+    以下路由路径切换的三种方式不会使页面重新加载：
+        location.hash('映射路径');           // 默认模式，除了这个方法，以下的都是HTML5的模式
+        history.pushState('映射路径');       // 该方法是栈操作，可以返回上一步
+        history.replaceState('映射路径');    // 该方法是替换操作，不能返回上一步
+
+        history.back() 等价于 history.go(-1)    // 返回上一步
+        history.forword() 等价于 history.go(1)  // 跳转下一步
+
+
+    路由参数传递:
+        params的类型:
+            配置路由的格式: /router/:id名
+            传递的方式: 在path后面跟上对应的值
+            传递后形成的路径: /router/123 , /router/abc
+            获取路径的方式: $route.params.id名
+
+        query的类型:
+            配置路由格式: /router 也就是普通配置
+            传递方式: 对象中使用query的key作为传递方式
+            传递后形成的路径: /router?id=123, /router?id=abc
+
+        keep-alive:
+            将 vue-router 存放到 keep-alive，那keep-alive就会将它缓存起来
+            只有组件是keep-alive 才能使用 activated 和 deactivated函数
+            beforeRouterLeave(to,from,next){}:    表示离开组件时会被调用的方法
+            eg:
+                // 当组件处于活跃状态时，调用之前存储过的path路径
+                activated() {
+                  this.$router.push(this.path);
+                },
+                // 记录当前组件离开时的路径
+                beforeRouteLeave(to, from, next) {
+                  this.path = this.$route.path;
+                  next();
+                }
+
+        <keep-alive exclude="Index,about">:
+            exclude表示将起排除在缓存外，不缓存；
+            include:表示只缓存什么文件
+            注意文件和文件之间用逗号分开，但是不能加空格！！
+
+        路径别名:
+        在wepack.base.cong.js文件中的
+            reslove:{
+                alias:{
+                // 表示src文件的别名是 @
+                    '@':resolve('src');
+                }
+            }
+            该方法只有import引入时能直接用，如果不是import引入，则需要在前面加一个～符号再引入
+
+
+

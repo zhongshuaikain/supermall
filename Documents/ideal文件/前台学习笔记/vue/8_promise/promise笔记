@@ -1,0 +1,22 @@
+promise的三种状态：
+    pending: 等待状态，比如正在进行网络请求的时间，或者定时器没有到的时间
+    fulfill: 满足状态，当我们主动回调了resolve时，就处于该状态，并且会回调 .then()
+    reject:  拒绝状态，当我们主动回调了reject时，就处于该状态，并且会回调 .catch()
+
+promise异步包装格式(以setTimeout请求为例):
+    new promise( (resolve,reject)=>{
+        setTimeout({
+            resolve()
+            reject('error message')
+        },1000)
+    }).then(  ()=>{
+        执行第一次请求的处理代码语句
+    }).catch( (err)=>{
+            console.log(err)
+    })
+
+    new promise() 括号内是一个回调函数
+    new promise( ()=>{} )
+        回调函数内的箭头函数中的（），有两个值，一个是返回请求成功的resolve，一个是失败的reject
+        当请求成功会执行resolve函数，进入 .then()方法,注意then()方法内部又是一个不带参数的箭头函数
+        当请求失败会执行reject函数，进入 .catch()方法,注意catch()方法内部是一个带参数的箭头函数,该参数是来自于 请求体中reject所传递来的错误数据
