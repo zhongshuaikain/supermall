@@ -1,13 +1,249 @@
 <template>
-  <div>classify</div>
+  <div class="wrapper" ref="aaa">
+    <ul class="content">
+      <li>啊啊啊</li>
+      <li>啊啊啊</li>
+      <li>啊啊啊</li>
+      <li>啊啊啊</li>
+      <li>啊啊啊</li>
+      <li>啊啊啊</li>
+      <li>啊啊啊</li>
+      <li>啊啊啊</li>
+      <li>啊啊啊</li>
+      <li>啊啊啊</li>
+      <li>啊啊啊</li>
+      <li>啊啊啊</li>
+      <li>啊啊啊</li>
+      <li>啊啊啊</li>
+      <li>啊啊啊</li>
+      <li>啊啊啊</li>
+      <li>啊啊啊</li>
+      <li>啊啊啊</li>
+      <li>啊啊啊</li>
+      <li>啊啊啊</li>
+      <li>啊啊啊</li>
+      <li>啊啊啊</li>
+      <li>啊啊啊</li>
+      <li>啊啊啊</li>
+      <li>啊啊啊</li>
+      <li>啊啊啊</li>
+      <li>啊啊啊</li>
+      <li>啊啊啊</li>
+      <li>啊啊啊</li>
+      <li>啊啊啊</li>
+      <li>啊啊啊</li>
+      <li>啊啊啊</li>
+      <li>啊啊啊</li>
+      <li>啊啊啊</li>
+      <li>啊啊啊</li>
+      <li>啊啊啊</li>
+      <li>啊啊啊</li>
+      <li>啊啊啊</li>
+      <li>啊啊啊</li>
+      <li>啊啊啊</li>
+      <li>啊啊啊</li>
+      <li>啊啊啊</li>
+      <li>啊啊啊</li>
+      <li>啊啊啊</li>
+      <li>啊啊啊</li>
+      <li>啊啊啊</li>
+      <li>啊啊啊</li>
+      <li>啊啊啊</li>
+      <li>啊啊啊</li>
+      <li>啊啊啊</li>
+      <li>啊啊啊</li>
+      <li>啊啊啊</li>
+      <li>啊啊啊</li>
+      <li>啊啊啊</li>
+      <li>啊啊啊</li>
+      <li>啊啊啊</li>
+      <li>啊啊啊</li>
+      <li>啊啊啊</li>
+      <li>啊啊啊</li>
+      <li>啊啊啊</li>
+      <li>啊啊啊</li>
+      <li>啊啊啊</li>
+      <li>啊啊啊</li>
+      <li>啊啊啊</li>
+      <li>啊啊啊</li>
+      <li>啊啊啊</li>
+      <li>啊啊啊</li>
+      <li>啊啊啊</li>
+      <li>啊啊啊</li>
+      <li>啊啊啊</li>
+      <li>啊啊啊</li>
+      <li>啊啊啊</li>
+      <li>啊啊啊</li>
+      <li>啊啊啊</li>
+      <li>啊啊啊</li>
+      <li>啊啊啊</li>
+      <li>啊啊啊</li>
+      <li>啊啊啊</li>
+      <li>啊啊啊</li>
+      <li>啊啊啊</li>
+      <li>啊啊啊</li>
+      <li>啊啊啊</li>
+      <li>啊啊啊</li>
+      <li>啊啊啊</li>
+      <li>啊啊啊</li>
+      <li>啊啊啊</li>
+      <li>啊啊啊</li>
+      <li>啊啊啊</li>
+      <li>啊啊啊</li>
+      <li>啊啊啊</li>
+      <li>啊啊啊</li>
+      <li>啊啊啊</li>
+      <li>啊啊啊</li>
+      <li>啊啊啊</li>
+      <li>啊啊啊</li>
+      <li>啊啊啊</li>
+      <li>啊啊啊</li>
+      <li>啊啊啊</li>
+      <li>啊啊啊</li>
+      <li>啊啊啊</li>
+      <li>啊啊啊</li>
+      <li>啊啊啊</li>
+      <li>啊啊啊</li>
+      <li>啊啊啊</li>
+      <li>啊啊啊</li>
+      <li>啊啊啊</li>
+      <li>啊啊啊</li>
+      <li>啊啊啊</li>
+      <li>啊啊啊</li>
+      <li>啊啊啊</li>
+      <li>啊啊啊</li>
+      <li>啊啊啊</li>
+      <li>啊啊啊</li>
+      <li>啊啊啊</li>
+      <li>啊啊啊</li>
+      <li>啊啊啊</li>
+      <li>啊啊啊</li>
+      <li>啊啊啊</li>
+      <li>啊啊啊</li>
+      <li>啊啊啊</li>
+      <li>啊啊啊</li>
+      <li>啊啊啊</li>
+      <li>啊啊啊</li>
+      <li>啊啊啊</li>
+      <li>啊啊啊</li>
+      <li>啊啊啊</li>
+      <li>啊啊啊</li>
+      <li>啊啊啊</li>
+      <li>啊啊啊</li>
+      <li>啊啊啊</li>
+      <li>啊啊啊</li>
+      <li>啊啊啊</li>
+      <li>啊啊啊</li>
+      <li>啊啊啊</li>
+      <li>啊啊啊</li>
+      <li>啊啊啊</li>
+      <li>啊啊啊</li>
+      <li>啊啊啊</li>
+      <li>啊啊啊</li>
+      <li>啊啊啊</li>
+      <li>啊啊啊</li>
+      <li>啊啊啊</li>
+      <li>啊啊啊</li>
+      <li>啊啊啊</li>
+      <li>啊啊啊</li>
+      <li>啊啊啊</li>
+      <li>啊啊啊</li>
+      <li>啊啊啊</li>
+      <li>啊啊啊</li>
+      <li>啊啊啊</li>
+      <li>啊啊啊</li>
+      <li>啊啊啊</li>
+      <li>啊啊啊</li>
+      <li>啊啊啊</li>
+      <li>啊啊啊</li>
+      <li>啊啊啊</li>
+      <li>啊啊啊</li>
+      <li>啊啊啊</li>
+      <li>啊啊啊</li>
+      <li>啊啊啊</li>
+      <li>啊啊啊</li>
+      <li>啊啊啊</li>
+      <li>啊啊啊</li>
+      <li>啊啊啊</li>
+      <li>啊啊啊</li>
+      <li>啊啊啊</li>
+      <li>啊啊啊</li>
+      <li>啊啊啊</li>
+      <li>啊啊啊</li>
+      <li>啊啊啊</li>
+      <li>啊啊啊</li>
+      <li>啊啊啊</li>
+      <li>啊啊啊</li>
+      <li>啊啊啊</li>
+      <li>啊啊啊</li>
+      <li>啊啊啊</li>
+      <li>啊啊啊</li>
+      <li>啊啊啊</li>
+      <li>啊啊啊</li>
+      <li>啊啊啊</li>
+      <li>啊啊啊</li>
+      <li>啊啊啊</li>
+      <li>啊啊啊</li>
+      <li>啊啊啊</li>
+      <li>啊啊啊</li>
+      <li>啊啊啊</li>
+      <li>啊啊啊</li>
+      <li>啊啊啊</li>
+      <li>啊啊啊</li>
+      <li>啊啊啊</li>
+      <li>啊啊啊</li>
+      <li>啊啊啊</li>
+      <li>啊啊啊</li>
+      <li>啊啊啊</li>
+      <li>啊啊啊</li>
+      <li>啊啊啊</li>
+      <li>啊啊啊</li>
+      <li>啊啊啊</li>
+      <li>啊啊啊</li>
+      <li>啊啊啊</li>
+      <li>啊啊啊</li>
+      <li>啊啊啊</li>
+      <li>啊啊啊</li>
+      <li>啊啊啊</li>
+      <li>啊啊啊</li>
+      <li>啊啊啊</li>
+      <li>啊啊啊</li>
+      <li>啊啊啊</li>
+      <li>啊啊啊</li>
+      <li>啊啊啊</li>
+      <li>啊啊啊</li>
+      <li>啊啊啊</li>
+      <li>啊啊啊</li>
+      <li>啊啊啊</li>
+      <li>啊啊啊</li>
+      <li>啊啊啊</li>
+      <li>啊啊啊</li>
+      <li>啊啊啊</li>
+      <li>啊啊啊</li>
+      <li>啊啊啊</li>
+    </ul>
+  </div>
 </template>
-
 <script>
+  import BScroll from 'better-scroll'
+
   export default {
-    name: "classify"
+    name: "classify",
+    data() {
+      return {scroll: null}
+    },
+    mounted() {
+      this.scroll = new BScroll(this.$refs.aaa, {});
+    }
   }
 </script>
 
+
 <style scoped>
+  .wrapper {
+    height: 600px;
+    background-color: #ef4562;
+    overflow: hidden;
+  }
 
 </style>

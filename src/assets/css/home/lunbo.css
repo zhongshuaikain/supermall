@@ -1,0 +1,69 @@
+button {
+  outline: none;
+}
+
+.box ul {
+  position: relative;
+  height: 200px;
+  list-style: none;
+}
+
+.box ul li {
+  position: absolute;
+}
+
+.box ul li:nth-child(1) {
+  width: 100%;
+  height: 100%;
+  background-color: black;
+}
+
+.box ul li:nth-child(2) {
+  width: 100%;
+  height: 200px;
+  background-color: pink;
+}
+
+.box ul li:nth-child(3) {
+  width: 100%;
+  height: 200px;
+  background-color: olivedrab;
+  /*z-index: 2;*/
+}
+
+.box ul li:nth-child(4) {
+  width: 100%;
+  height: 200px;
+  background-color: orange;;
+}
+
+.box button {
+  width: 20px;
+  height: 30px;
+  background-color: skyblue;
+  z-index: 100;
+}
+
+.box {
+  position: relative;
+}
+
+.btnLeft {
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto 0;
+}
+
+.btnRight {
+  position: absolute;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto 0;
+}
+
+.active{
+  z-index: 10;
+}
